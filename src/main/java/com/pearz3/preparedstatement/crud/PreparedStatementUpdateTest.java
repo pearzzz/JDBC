@@ -1,5 +1,6 @@
 package com.pearz3.preparedstatement.crud;
 
+import com.pearz3.util.JDBCUtils;
 import org.junit.Test;
 
 import java.io.File;
@@ -15,6 +16,28 @@ import java.util.Date;
 import java.util.Properties;
 
 public class PreparedStatementUpdateTest {
+
+    @Test
+    public void testUpdate() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = JDBCUtils.getConnection();
+
+            String sql = "update customers set name = ? where id = ?";
+            ps = conn.prepareStatement(sql);
+
+            ps.setObject(1, "redz");
+            ps.setObject(2, 4);
+
+            ps.execute();
+        } catch (IOException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.closeResource(conn, ps);
+        }
+
+    }
 
     @Test
     public void testInsret() {

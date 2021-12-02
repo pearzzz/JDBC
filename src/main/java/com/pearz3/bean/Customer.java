@@ -6,16 +6,16 @@ public class Customer {
     private int id;
     private String name;
     private String email;
-    private Date date;
+    private Date birth;
 
     public Customer() {
     }
 
-    public Customer(int id, String name, String email, Date date) {
+    public Customer(int id, String name, String email, Date birth) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.date = date;
+        this.birth = birth;
     }
 
     public int getId() {
@@ -43,11 +43,11 @@ public class Customer {
     }
 
     public Date getDate() {
-        return date;
+        return birth;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(Date birth) {
+        this.birth = birth;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Customer {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", date=" + date +
+                ", date=" + birth +
                 '}';
     }
 }

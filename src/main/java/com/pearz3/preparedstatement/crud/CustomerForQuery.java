@@ -52,7 +52,7 @@ public class CustomerForQuery {
 
                 for (int i = 0; i < columnCount; i++) {
                     Object columnValue = rs.getObject(i + 1);
-//                    String columnName = rsmd.getColumnName(i + 1); 
+//                    String columnName = rsmd.getColumnName(i + 1);
                     //getColumnLabel代替getColumnName，getColumnLabel有别名时值为别名，无别名时值为列名，防止数据库列名和类里属性名不同
                     String columnLabel = rsmd.getColumnLabel(i + 1);
 

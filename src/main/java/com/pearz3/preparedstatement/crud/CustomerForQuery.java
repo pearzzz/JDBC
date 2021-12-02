@@ -5,7 +5,6 @@ import com.pearz3.util.JDBCUtils;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.lang.management.PlatformLoggingMXBean;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.Date;
@@ -53,10 +52,12 @@ public class CustomerForQuery {
 
                 for (int i = 0; i < columnCount; i++) {
                     Object columnValue = rs.getObject(i + 1);
-                    String columnName = rsmd.getColumnName(i + 1);
+//                    String columnName = rsmd.getColumnName(i + 1);
+                    //getColumnLabel代替getColumnName，getColumnLabel有别名时值为别名，无别名时值为列名，防止数据库列名和类里属性名不同
+                    String columnLabel = rsmd.getColumnLabel(i + 1);
 
                     //6.通过反射，给对象相应的属性赋值
-                    Field field = Customer.class.getDeclaredField(columnName);
+                    Field field = Customer.class.getDeclaredField(columnLabel);
                     field.setAccessible(true);
                     field.set(customer, columnValue);
                 }

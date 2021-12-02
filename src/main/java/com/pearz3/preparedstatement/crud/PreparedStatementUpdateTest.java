@@ -18,6 +18,46 @@ import java.util.Properties;
 public class PreparedStatementUpdateTest {
 
     @Test
+    public void testCommonUpdate() {
+        //增
+//        String sql = "insert user(name,password,address,phone) value(?,?,?,?)";
+//        update(sql, "pearz", "123456", "Xian", "12306");
+
+        //删
+//        String sql = "delete from customers where id=?";
+//        update(sql, 4);
+
+        //改
+        String sql = "update `order` set order_name=? where order_id=?";
+        update(sql, "MM", 4);
+
+    }
+
+    //通用的增删改操作
+    public void update(String sql, Object... args) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            //1.获取数据库的连接
+            conn = JDBCUtils.getConnection();
+            //2.预编译sql语句，返回PreparedStatement的实例
+            ps = conn.prepareStatement(sql);
+            //3.填充占位符
+            for (int i = 0; i < args.length; i++) {
+                ps.setObject(i + 1, args[i]);
+            }
+            //4.执行
+            ps.execute();
+        } catch (IOException | SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            //5.资源的关闭
+            JDBCUtils.closeResource(conn, ps);
+        }
+    }
+
+    //修改customers表的一条记录
+    @Test
     public void testUpdate() {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -27,7 +67,7 @@ public class PreparedStatementUpdateTest {
             //2.预编译sql语句，返回PreparedStatement的实例
             String sql = "update customers set name = ? where id = ?";
             ps = conn.prepareStatement(sql);
-            //填充占位符
+            //3.填充占位符
             ps.setObject(1, "redz");
             ps.setObject(2, 4);
             //4.执行
@@ -41,6 +81,7 @@ public class PreparedStatementUpdateTest {
 
     }
 
+    //在customers中插入一条语句
     @Test
     public void testInsret() {
 

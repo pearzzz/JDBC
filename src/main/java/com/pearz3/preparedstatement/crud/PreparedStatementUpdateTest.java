@@ -22,18 +22,20 @@ public class PreparedStatementUpdateTest {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
+            //1.获取数据库的连接
             conn = JDBCUtils.getConnection();
-
+            //2.预编译sql语句，返回PreparedStatement的实例
             String sql = "update customers set name = ? where id = ?";
             ps = conn.prepareStatement(sql);
-
+            //填充占位符
             ps.setObject(1, "redz");
             ps.setObject(2, 4);
-
+            //4.执行
             ps.execute();
         } catch (IOException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         } finally {
+            //5.资源的关闭
             JDBCUtils.closeResource(conn, ps);
         }
 

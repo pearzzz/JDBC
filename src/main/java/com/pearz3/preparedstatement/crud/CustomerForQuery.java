@@ -69,6 +69,7 @@ public class CustomerForQuery {
             //7.关闭资源
             JDBCUtils.closeResource(conn, ps, rs);
         }
+
         return null;
     }
 

@@ -1,4 +1,4 @@
-package com.pearz4.exer;
+package com.pearz3.preparedstatement.exer;
 
 import com.pearz3.preparedstatement.util.JDBCUtils;
 import org.junit.Test;

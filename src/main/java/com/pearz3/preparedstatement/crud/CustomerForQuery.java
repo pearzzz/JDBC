@@ -1,7 +1,7 @@
 package com.pearz3.preparedstatement.crud;
 
-import com.pearz3.bean.Customer;
-import com.pearz3.util.JDBCUtils;
+import com.pearz3.preparedstatement.bean.Customer;
+import com.pearz3.preparedstatement.util.JDBCUtils;
 import org.junit.Test;
 
 import java.io.IOException;

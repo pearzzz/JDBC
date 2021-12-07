@@ -1,5 +1,6 @@
 package com.pearz6.transation;
 
+import com.pearz.bean.User;
 import com.pearz3.preparedstatement.util.JDBCUtils;
 import org.junit.Test;
 
@@ -36,9 +37,6 @@ public class TransactionTest {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            //1.获取数据库连接
-            conn = JDBCUtils.getConnection();
-
             //2.预编译sql语句，得到PreparedStatement对象
             ps = conn.prepareStatement(sql);
 

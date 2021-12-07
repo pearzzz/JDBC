@@ -1,4 +1,4 @@
-package com.pearz3.preparedstatement.bean;
+package com.pearz.bean;
 
 import java.util.Date;
 
@@ -42,11 +42,11 @@ public class Customer {
         this.email = email;
     }
 
-    public Date getDate() {
+    public Date getBirth() {
         return birth;
     }
 
-    public void setDate(Date birth) {
+    public void setBirth(Date birth) {
         this.birth = birth;
     }
 

@@ -1,4 +1,4 @@
-package com.pearz6.transation;
+package com.pearz.bean;
 
 /**
  * @ClassName User

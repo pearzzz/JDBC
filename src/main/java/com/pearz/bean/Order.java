@@ -1,4 +1,4 @@
-package com.pearz3.preparedstatement.bean;
+package com.pearz.bean;
 
 import java.util.Date;
 

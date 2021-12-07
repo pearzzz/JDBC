@@ -1,6 +1,6 @@
 package com.pearz3.preparedstatement.crud;
 
-import com.pearz3.preparedstatement.bean.Customer;
+import com.pearz.bean.Customer;
 import com.pearz3.preparedstatement.util.JDBCUtils;
 import org.junit.Test;
 

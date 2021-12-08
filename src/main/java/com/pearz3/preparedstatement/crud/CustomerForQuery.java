@@ -1,7 +1,7 @@
 package com.pearz3.preparedstatement.crud;
 
 import com.pearz.bean.Customer;
-import com.pearz3.preparedstatement.util.JDBCUtils;
+import com.pearz.util.OldJDBCUtils;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class CustomerForQuery {
         ResultSet rs = null;
         try {
             //1.获取数据库连接
-            conn = JDBCUtils.getConnection();
+            conn = OldJDBCUtils.getConnection();
 
             //2.预编译sql语句，得到PreparedStatement对象
             ps = conn.prepareStatement(sql);
@@ -67,7 +67,7 @@ public class CustomerForQuery {
             e.printStackTrace();
         } finally {
             //7.关闭资源
-            JDBCUtils.closeResource(conn, ps, rs);
+            OldJDBCUtils.closeResource(conn, ps, rs);
         }
 
         return null;
@@ -79,7 +79,7 @@ public class CustomerForQuery {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
-            conn = JDBCUtils.getConnection();
+            conn = OldJDBCUtils.getConnection();
 
             String sql = "select id,name,email,birth from customers where id=?";
             ps = conn.prepareStatement(sql);
@@ -100,7 +100,7 @@ public class CustomerForQuery {
         } catch (IOException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(conn, ps, resultSet);
+            OldJDBCUtils.closeResource(conn, ps, resultSet);
         }
     }
 }

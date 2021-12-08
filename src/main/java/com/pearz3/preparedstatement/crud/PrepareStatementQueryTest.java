@@ -2,7 +2,7 @@ package com.pearz3.preparedstatement.crud;
 
 import com.pearz.bean.Customer;
 import com.pearz.bean.Order;
-import com.pearz3.preparedstatement.util.JDBCUtils;
+import com.pearz.util.OldJDBCUtils;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
@@ -35,7 +35,7 @@ public class PrepareStatementQueryTest {
         ResultSet rs = null;
         try {
             //1.获取数据库连接
-            conn = JDBCUtils.getConnection();
+            conn = OldJDBCUtils.getConnection();
 
             //2.预编译sql语句，得到PreparedStatement对象
             ps = conn.prepareStatement(sql);
@@ -73,7 +73,7 @@ public class PrepareStatementQueryTest {
             e.printStackTrace();
         } finally {
             //7.关闭资源
-            JDBCUtils.closeResource(conn, ps, rs);
+            OldJDBCUtils.closeResource(conn, ps, rs);
         }
 
         return null;
@@ -97,7 +97,7 @@ public class PrepareStatementQueryTest {
         ResultSet rs = null;
         try {
             //1.获取数据库连接
-            conn = JDBCUtils.getConnection();
+            conn = OldJDBCUtils.getConnection();
 
             //2.预编译sql语句，得到PreparedStatement对象
             ps = conn.prepareStatement(sql);
@@ -133,7 +133,7 @@ public class PrepareStatementQueryTest {
             e.printStackTrace();
         } finally {
             //7.关闭资源
-            JDBCUtils.closeResource(conn, ps, rs);
+            OldJDBCUtils.closeResource(conn, ps, rs);
         }
 
         return null;

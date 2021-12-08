@@ -1,6 +1,6 @@
 package com.pearz3.preparedstatement.crud;
 
-import com.pearz3.preparedstatement.util.JDBCUtils;
+import com.pearz.util.OldJDBCUtils;
 import org.junit.Test;
 
 import java.io.File;
@@ -39,7 +39,7 @@ public class PreparedStatementUpdateTest {
         PreparedStatement ps = null;
         try {
             //1.获取数据库的连接
-            conn = JDBCUtils.getConnection();
+            conn = OldJDBCUtils.getConnection();
             //2.预编译sql语句，返回PreparedStatement的实例
             ps = conn.prepareStatement(sql);
             //3.填充占位符
@@ -52,7 +52,7 @@ public class PreparedStatementUpdateTest {
             e.printStackTrace();
         } finally {
             //5.资源的关闭
-            JDBCUtils.closeResource(conn, ps);
+            OldJDBCUtils.closeResource(conn, ps);
         }
     }
 
@@ -63,7 +63,7 @@ public class PreparedStatementUpdateTest {
         PreparedStatement ps = null;
         try {
             //1.获取数据库的连接
-            conn = JDBCUtils.getConnection();
+            conn = OldJDBCUtils.getConnection();
             //2.预编译sql语句，返回PreparedStatement的实例
             String sql = "update customers set name = ? where id = ?";
             ps = conn.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class PreparedStatementUpdateTest {
             e.printStackTrace();
         } finally {
             //5.资源的关闭
-            JDBCUtils.closeResource(conn, ps);
+            OldJDBCUtils.closeResource(conn, ps);
         }
 
     }

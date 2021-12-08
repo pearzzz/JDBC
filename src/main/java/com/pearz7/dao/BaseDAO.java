@@ -1,6 +1,6 @@
 package com.pearz7.dao;
 
-import com.pearz3.preparedstatement.util.JDBCUtils;
+import com.pearz.util.OldJDBCUtils;
 
 import java.lang.reflect.Field;
 import java.sql.*;
@@ -31,7 +31,7 @@ public abstract class BaseDAO {
             e.printStackTrace();
         } finally {
             //5.资源的关闭
-            JDBCUtils.closeResource(null, ps);
+            OldJDBCUtils.closeResource(null, ps);
         }
         return 0;
     }
@@ -75,7 +75,7 @@ public abstract class BaseDAO {
             e.printStackTrace();
         } finally {
             //7.关闭资源
-            JDBCUtils.closeResource(null, ps, rs);
+            OldJDBCUtils.closeResource(null, ps, rs);
         }
 
         return null;
@@ -122,7 +122,7 @@ public abstract class BaseDAO {
             e.printStackTrace();
         } finally {
             //7.关闭资源
-            JDBCUtils.closeResource(null, ps, rs);
+            OldJDBCUtils.closeResource(null, ps, rs);
         }
 
         return null;
@@ -144,7 +144,7 @@ public abstract class BaseDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(null, ps, rs);
+            OldJDBCUtils.closeResource(null, ps, rs);
         }
         return null;
     }

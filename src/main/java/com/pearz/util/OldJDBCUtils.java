@@ -1,4 +1,4 @@
-package com.pearz3.preparedstatement.util;
+package com.pearz.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 
-public class JDBCUtils {
+/**
+ * @author pearz
+ */
+public class OldJDBCUtils {
     public static Connection getConnection() throws IOException, ClassNotFoundException, SQLException {
         //1.读取配置文件
         File file = new File("src/main/java/jdbc.properties");
@@ -29,14 +32,16 @@ public class JDBCUtils {
 
     public static void closeResource(Connection conn, Statement statement) {
         try {
-            if (statement != null)
+            if (statement != null) {
                 statement.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            if (conn != null)
+            if (conn != null) {
                 conn.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -44,20 +49,23 @@ public class JDBCUtils {
 
     public static void closeResource(Connection conn, Statement statement, ResultSet rs) {
         try {
-            if (statement != null)
+            if (statement != null) {
                 statement.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            if (conn != null)
+            if (conn != null) {
                 conn.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            if (rs != null)
+            if (rs != null) {
                 rs.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

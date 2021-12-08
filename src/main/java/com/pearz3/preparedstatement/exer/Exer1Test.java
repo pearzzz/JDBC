@@ -1,6 +1,6 @@
 package com.pearz3.preparedstatement.exer;
 
-import com.pearz3.preparedstatement.util.JDBCUtils;
+import com.pearz.util.OldJDBCUtils;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -41,7 +41,7 @@ public class Exer1Test {
         PreparedStatement ps = null;
         try {
             //1.获取数据库的连接
-            conn = JDBCUtils.getConnection();
+            conn = OldJDBCUtils.getConnection();
             //2.预编译sql语句，返回PreparedStatement的实例
             ps = conn.prepareStatement(sql);
             //3.填充占位符
@@ -54,7 +54,7 @@ public class Exer1Test {
             e.printStackTrace();
         } finally {
             //5.资源的关闭
-            JDBCUtils.closeResource(conn, ps);
+            OldJDBCUtils.closeResource(conn, ps);
         }
 
         return 0;

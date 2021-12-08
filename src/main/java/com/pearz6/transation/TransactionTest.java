@@ -1,7 +1,7 @@
 package com.pearz6.transation;
 
 import com.pearz.bean.User;
-import com.pearz3.preparedstatement.util.JDBCUtils;
+import com.pearz.util.OldJDBCUtils;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class TransactionTest {
 
     @Test
     public void testTransactionSelect() throws SQLException, IOException, ClassNotFoundException {
-        Connection conn = JDBCUtils.getConnection();
+        Connection conn = OldJDBCUtils.getConnection();
         //获取当前连接的隔离级别
         System.out.println(conn.getTransactionIsolation());
         //设置当前连接的隔离级别
@@ -71,7 +71,7 @@ public class TransactionTest {
             e.printStackTrace();
         } finally {
             //7.关闭资源
-            JDBCUtils.closeResource(null, ps, rs);
+            OldJDBCUtils.closeResource(null, ps, rs);
         }
 
         return null;
@@ -82,7 +82,7 @@ public class TransactionTest {
     public void  testUpdateWithTx() {
         Connection conn = null;
         try {
-            conn = JDBCUtils.getConnection();
+            conn = OldJDBCUtils.getConnection();
             //1.取消数据的自动提交
             conn.setAutoCommit(false);
             String sql = "update user_table set balance = balance - 100 where user = ?";
@@ -116,7 +116,7 @@ public class TransactionTest {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            JDBCUtils.closeResource(conn, null);
+            OldJDBCUtils.closeResource(conn, null);
         }
     }
 
@@ -137,7 +137,7 @@ public class TransactionTest {
             e.printStackTrace();
         } finally {
             //5.资源的关闭
-            JDBCUtils.closeResource(null, ps);
+            OldJDBCUtils.closeResource(null, ps);
         }
         return 0;
     }
@@ -149,7 +149,7 @@ public class TransactionTest {
         PreparedStatement ps = null;
         try {
             //1.获取数据库的连接
-            conn = JDBCUtils.getConnection();
+            conn = OldJDBCUtils.getConnection();
             //2.预编译sql语句，返回PreparedStatement的实例
             ps = conn.prepareStatement(sql);
             //3.填充占位符
@@ -162,7 +162,7 @@ public class TransactionTest {
             e.printStackTrace();
         } finally {
             //5.资源的关闭
-            JDBCUtils.closeResource(conn, ps);
+            OldJDBCUtils.closeResource(conn, ps);
         }
         return 0;
     }

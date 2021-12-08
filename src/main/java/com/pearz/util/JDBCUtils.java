@@ -1,6 +1,7 @@
 package com.pearz.util;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import org.apache.commons.dbutils.DbUtils;
 
 import javax.sql.DataSource;
 import java.io.File;
@@ -34,43 +35,13 @@ public class JDBCUtils {
     }
 
     public static void closeResource(Connection conn, Statement statement) {
-        try {
-            if (statement != null) {
-                statement.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (conn != null) {
-                conn.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        DbUtils.closeQuietly(conn);
+        DbUtils.closeQuietly(statement);
     }
 
     public static void closeResource(Connection conn, Statement statement, ResultSet rs) {
-        try {
-            if (statement != null) {
-                statement.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (conn != null) {
-                conn.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (rs != null) {
-                rs.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        DbUtils.closeQuietly(conn);
+        DbUtils.closeQuietly(statement);
+        DbUtils.closeQuietly(rs);
     }
 }

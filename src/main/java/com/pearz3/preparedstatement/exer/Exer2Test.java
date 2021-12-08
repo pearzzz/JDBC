@@ -9,7 +9,6 @@ import java.sql.*;
 import java.util.Scanner;
 
 /**
- * @ClassName Exer2Test
  * @Description
  * @Author pearz
  * @Email zhaihonghao317@163.com
@@ -17,7 +16,9 @@ import java.util.Scanner;
  */
 public class Exer2Test {
 
-    //问题3：删除指定的学生信息
+    /**
+     * 问题3：删除指定的学生信息
+    **/
     @Test
     public void testDelete() {
         Scanner scanner = new Scanner(System.in);
@@ -34,7 +35,9 @@ public class Exer2Test {
         }
     }
 
-    //问题2：根据身份证号IDCard或准考证号ExamCard查询
+    /**
+     * 问题2：根据身份证号IDCard或准考证号ExamCard查询
+    **/
     @Test
     public void testGetGrade() {
         Scanner scanner = new Scanner(System.in);
@@ -115,7 +118,9 @@ public class Exer2Test {
         return null;
     }
 
-    //问题1：向examstudent表中添加一条记录
+    /**
+     * 问题1：向examstudent表中添加一条记录
+    **/
     @Test
     public void testInsert() {
         Scanner scanner = new Scanner(System.in);
@@ -144,7 +149,9 @@ public class Exer2Test {
         }
     }
 
-    //通用的增删改操作
+    /**
+     * 通用的增删改操作
+    **/
     public int update(String sql, Object... args) {
         Connection conn = null;
         PreparedStatement ps = null;

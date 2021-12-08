@@ -15,6 +15,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
+/**
+ * @author pearz
+ */
 public class PreparedStatementUpdateTest {
 
     @Test
@@ -33,7 +36,9 @@ public class PreparedStatementUpdateTest {
 
     }
 
-    //通用的增删改操作
+    /**
+     * 通用的增删改操作
+    **/
     public void update(String sql, Object... args) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -56,7 +61,9 @@ public class PreparedStatementUpdateTest {
         }
     }
 
-    //修改customers表的一条记录
+    /**
+     * 修改customers表的一条记录
+    **/
     @Test
     public void testUpdate() {
         Connection conn = null;
@@ -81,7 +88,9 @@ public class PreparedStatementUpdateTest {
 
     }
 
-    //在customers中插入一条语句
+    /**
+     * 在customers中插入一条语句
+    **/
     @Test
     public void testInsret() {
 

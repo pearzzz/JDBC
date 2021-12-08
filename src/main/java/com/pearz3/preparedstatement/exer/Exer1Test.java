@@ -35,7 +35,9 @@ public class Exer1Test {
         }
     }
 
-    //通用的增删改操作
+    /**
+     * 通用的增删改操作
+    **/
     public static int update(String sql, Object... args) {
         Connection conn = null;
         PreparedStatement ps = null;

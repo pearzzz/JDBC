@@ -15,7 +15,9 @@ import java.util.List;
  * @Date 16:28 2021/12/4
  */
 public abstract class BaseDAO {
-    //通用的增删改操作---version 2.0
+    /**
+     * 通用的增删改操作---version 2.0
+    **/
     public int update(Connection conn, String sql, Object... args) {
         PreparedStatement ps = null;
         try {
@@ -36,7 +38,9 @@ public abstract class BaseDAO {
         return 0;
     }
 
-    //通用的查询操作，用于返回数据表中的一条数据（version 2.0，考虑事务）
+    /**
+     * 通用的查询操作，用于返回数据表中的一条数据（version 2.0，考虑事务）
+    **/
     public <T> T getInstance(Connection conn, Class<T> clazz, String sql, Object ...args) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -81,7 +85,9 @@ public abstract class BaseDAO {
         return null;
     }
 
-    //通用的查询操作，用于返回数据表中的多条数据（version 2.0，考虑事务）
+    /**
+     * 通用的查询操作，用于返回数据表中的多条数据（version 2.0，考虑事务）
+    **/
     public <T> List<T> getForList(Connection conn, Class<T> clazz, String sql, Object ...args) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -128,7 +134,9 @@ public abstract class BaseDAO {
         return null;
     }
 
-    //用于查询特殊值的通用的方法
+    /**
+     * 用于查询特殊值的通用的方法
+    **/
     public <E> E getValue(Connection conn, String sql, Object ...args) {
         PreparedStatement ps = null;
         ResultSet rs = null;

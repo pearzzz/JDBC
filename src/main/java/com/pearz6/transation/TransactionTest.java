@@ -9,7 +9,6 @@ import java.lang.reflect.Field;
 import java.sql.*;
 
 /**
- * @ClassName TransactionTest
  * @Description
  * @Author pearz
  * @Email zhaihonghao317@163.com
@@ -79,7 +78,9 @@ public class TransactionTest {
         return null;
     }
 
-    //模拟转账：AA向BB转100元
+    /**
+     * 模拟转账：AA向BB转100元
+    **/
     @Test
     public void  testUpdateWithTx() {
         Connection conn = null;
@@ -123,7 +124,9 @@ public class TransactionTest {
     }
 
     //********************考虑数据库事务********************
-    //通用的增删改操作---version 2.0
+    /**
+     * 通用的增删改操作---version 2.0
+    **/
     public int update(Connection conn, String sql, Object... args) {
         PreparedStatement ps = null;
         try {
@@ -145,7 +148,9 @@ public class TransactionTest {
     }
 
     //********************未考虑数据库事务********************
-    //通用的增删改操作---version 1.0
+    /**
+     * 通用的增删改操作---version 1.0
+    **/
     public int update(String sql, Object... args) {
         Connection conn = null;
         PreparedStatement ps = null;

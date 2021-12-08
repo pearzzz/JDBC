@@ -2,6 +2,9 @@ package com.pearz.bean;
 
 import java.util.Date;
 
+/**
+ * @author pearz
+ */
 public class Order {
     private int orderId;
     private String orderName;

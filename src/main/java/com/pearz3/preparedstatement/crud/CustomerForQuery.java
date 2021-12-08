@@ -9,6 +9,9 @@ import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.Date;
 
+/**
+ * @author pearz
+ */
 public class CustomerForQuery {
 
     @Test

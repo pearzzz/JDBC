@@ -5,17 +5,18 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
-import java.util.Properties;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class ConnectionTest {
 
 
-    //方式一
+    /**
+     * 方式一
+    **/
     @Test
     public void testConnection1() throws SQLException {
         Driver driver = new com.mysql.jdbc.Driver();
@@ -35,7 +36,9 @@ public class ConnectionTest {
         System.out.println(conn);
     }
 
-    //方式二：对方式一的迭代。在如下的程序中不出现第三方的api，是的程序具有更好的可移植性
+    /**
+     * 方式二
+    **/
     @Test
     public void testConnection2() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         //使用反射获取Driver实现类对象
@@ -53,7 +56,9 @@ public class ConnectionTest {
         System.out.println(conn);
     }
 
-    //方式三：使用DriverManager替换Driver
+    /**
+     * 方式三
+    **/
     @Test
     public void testConnection3() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 
@@ -69,7 +74,9 @@ public class ConnectionTest {
         System.out.println(conn);
     }
 
-    //方式四：使用DriverManager替换Driver
+    /**
+     * 方式四
+    **/
     @Test
     public void testConnection4() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
 
@@ -95,7 +102,9 @@ public class ConnectionTest {
         System.out.println(conn);
     }
 
-    //方式五（最终版）：将数据库连接需要的4个基本信息声明在配置文件中，通过读取配置文件的方式，获取连接
+    /**
+     * 方式五（最终版）：将数据库连接需要的4个基本信息声明在配置文件中，通过读取配置文件的方式，获取连接
+    **/
     @Test
     public void getConnection5() throws IOException, ClassNotFoundException, SQLException {
 

@@ -90,7 +90,9 @@ public class PrepareStatementQueryTest {
         System.out.println(order);
     }
 
-    //通用的查询操作，用于返回数据表中的一条数据
+    /**
+     * 通用的查询操作，用于返回数据表中的一条数据
+    **/
     public <T> T getInstance(Class<T> clazz, String sql, Object ...args) {
         Connection conn = null;
         PreparedStatement ps = null;

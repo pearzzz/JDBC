@@ -2,6 +2,9 @@ package com.pearz.bean;
 
 import java.util.Date;
 
+/**
+ * @author pearz
+ */
 public class Customer {
     private int id;
     private String name;

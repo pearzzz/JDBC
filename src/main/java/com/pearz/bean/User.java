@@ -1,7 +1,6 @@
 package com.pearz.bean;
 
 /**
- * @ClassName User
  * @Description
  * @Author pearz
  * @Email zhaihonghao317@163.com

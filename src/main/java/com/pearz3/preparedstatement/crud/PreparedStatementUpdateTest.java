@@ -123,14 +123,16 @@ public class PreparedStatementUpdateTest {
         } finally {
             //7.资源的关闭
             try {
-                if (ps != null)
+                if (ps != null) {
                     ps.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             try {
-                if (conn != null)
+                if (conn != null) {
                     conn.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }

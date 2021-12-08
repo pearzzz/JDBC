@@ -32,7 +32,9 @@ public class TransactionTest {
         System.out.println(user);
     }
 
-    //通用的查询操作，用于返回数据表中的一条数据（version 2.0，考虑事务）
+    /**
+     * 通用的查询操作，用于返回数据表中的一条数据（version 2.0，考虑事务） conn不能每次都获取,否则就不是一个事务了
+    **/
     public <T> T getInstance(Connection conn, Class<T> clazz, String sql, Object ...args) {
         PreparedStatement ps = null;
         ResultSet rs = null;

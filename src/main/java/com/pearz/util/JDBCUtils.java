@@ -26,7 +26,6 @@ public class JDBCUtils {
             source = DruidDataSourceFactory.createDataSource(pros);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
         }
     }
     public static Connection getConnection() throws SQLException {
